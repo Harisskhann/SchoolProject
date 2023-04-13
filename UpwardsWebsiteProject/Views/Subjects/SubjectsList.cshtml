@@ -1,0 +1,56 @@
+﻿@model IEnumerable<UpwardsWebsiteProject.Models.SubjectsEntity>
+@{
+    ViewData["Title"] = "SubjectsList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>SubjectsList</h1>
+
+<hr />
+
+<p class="float-left">
+    <a asp-action="AddSubjects" asp-controller="Subjects" class="btn btn-outline-secondary">Add Subject</a>
+</p>
+
+<p class="float-right">
+    @* <a asp-action="AddCustomer" asp-controller="Item" class="btn btn-outline-secondary">Add School</a> |*@
+    @*<a asp-action="List" class="btn btn-outline-primary">Item List</a> |
+    <a asp-action="SchoolList" asp-controller="Item" class="btn btn-outline-primary">Category List</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectName)
+            </th>
+          
+
+
+
+
+
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubjectName)
+                </td>
+               
+
+
+                <td>
+                    @Html.ActionLink("Update", "AddSchool", new {  item.SubjectId, item.SubjectName} , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Delete", "DeleteSchool", new {  item.SubjectId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

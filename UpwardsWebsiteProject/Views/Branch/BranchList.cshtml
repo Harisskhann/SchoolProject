@@ -1,0 +1,72 @@
+﻿@model IEnumerable<UpwardsWebsiteProject.Models.BranchEntity>
+@{
+    ViewData["Title"] = "BranchList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>BranchList</h1>
+<hr />
+
+<p class="float-left">
+    <a asp-action="AddBranch" asp-controller="Branch" class="btn btn-outline-secondary">Add Branch</a>
+</p>
+
+<p class="float-right">
+    @* <a asp-action="AddCustomer" asp-controller="Item" class="btn btn-outline-secondary">Add School</a> |*@
+    @*<a asp-action="List" class="btn btn-outline-primary">Item List</a> |
+    <a asp-action="SchoolList" asp-controller="Item" class="btn btn-outline-primary">Category List</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.BranchName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BranchAddress)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.BranchPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolId)
+            </th>
+
+
+
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchAddress)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchPhone)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.SchoolId)
+                </td>
+
+
+                <td>
+                    @Html.ActionLink("Update", "AddBranch", new {  item.BranchId, item.BranchName, item.BranchAddress, item.BranchPhone,item.SchoolId } , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Delete", "DeleteBranch", new {  item.BranchId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

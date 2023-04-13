@@ -1,0 +1,51 @@
+﻿@model UpwardsWebsiteProject.Models.BranchEntity
+@{
+    ViewData["Title"] = "AddBranch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddBranch</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SaveBranch">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input type="hidden" asp-for="BranchId" />
+                <label asp-for="BranchName" class="control-label"></label>
+                <input asp-for="BranchName" class="form-control" />
+                <span asp-validation-for="BranchName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BranchAddress" class="control-label"></label>
+                <input asp-for="BranchAddress" class="form-control" />
+                <span asp-validation-for="BranchAddress" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="BranchPhone" class="control-label"></label>
+                <input asp-for="BranchPhone" class="form-control" />
+                <span asp-validation-for="BranchPhone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SchoolId" class="control-label"></label>
+                <select asp-for="SchoolId" class="form-control" asp-items="@(new SelectList(ViewBag.SchoolList,"SchoolId","SchoolName"))">
+                </select>
+
+            </div>
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="BranchList" class="btn btn-outline-success">Branch List</a>
+            </div>
+        </form>
+    </div>
+</div>
+

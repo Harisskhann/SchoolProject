@@ -1,0 +1,84 @@
+﻿@model IEnumerable<UpwardsWebsiteProject.Models.SectionEntity>
+@{
+    ViewData["Title"] = "SectionList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>SectionList</h1>
+<hr />
+
+<p class="float-left">
+    <a asp-action="AddSection" asp-controller="Section" class="btn btn-outline-secondary">Add Section</a>
+</p>
+
+<p class="float-right">
+    @* <a asp-action="AddCustomer" asp-controller="Item" class="btn btn-outline-secondary">Add School</a> |*@
+    @*<a asp-action="List" class="btn btn-outline-primary">Item List</a> |
+    <a asp-action="SchoolList" asp-controller="Item" class="btn btn-outline-primary">Category List</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BranchId)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ClassId)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.SectionName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ClassTeacher)
+            </th>
+
+
+
+
+
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SchoolId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchId)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassId)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.SectionName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassTeacher)
+                </td>
+
+
+                <td>
+                    @Html.ActionLink("Update", "AddSchool", new {  item.SectionId, item.SchoolId, item.BranchId, item.ClassId,item.SectionName,item.ClassTeacher } , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Delete", "DeleteSchool", new {  item.SectionId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+

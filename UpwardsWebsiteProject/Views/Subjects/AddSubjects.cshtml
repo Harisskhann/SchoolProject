@@ -1,0 +1,39 @@
+﻿@model UpwardsWebsiteProject.Models.SubjectsEntity
+@{
+    ViewData["Title"] = "AddSubjects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddSubjects</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SaveSchool">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input type="hidden" asp-for="SubjectId" />
+              @*  <label asp-for="SubjectName" class="control-label"></label>
+                <input asp-for="SubjectName" class="form-control" />
+                <span asp-validation-for="SubjectName" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="SubjectName" class="control-label"></label>
+                <select asp-for="SubjectName" class="form-control" asp-items="@(new SelectList(ViewBag.SubjectsList,"SubjectId","SubjectName"))">
+                </select>
+
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="SubjectsList" class="btn btn-outline-success">Subjects List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

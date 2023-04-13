@@ -1,0 +1,76 @@
+﻿@model IEnumerable<UpwardsWebsiteProject.Models.ParentEntity>
+@{
+    ViewData["Title"] = "ParentList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ParentList</h1>
+<hr />
+
+<p class="float-left">
+    <a asp-action="AddParent" asp-controller="Parent" class="btn btn-outline-secondary">Add Parent</a>
+</p>
+
+<p class="float-right">
+    @* <a asp-action="AddCustomer" asp-controller="Item" class="btn btn-outline-secondary">Add School</a> |*@
+    @*<a asp-action="List" class="btn btn-outline-primary">Item List</a> |
+    <a asp-action="SchoolList" asp-controller="Item" class="btn btn-outline-primary">Category List</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ParentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentPhone)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ParentCnic)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.StudentId)
+            </th>
+
+
+
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParentPhone)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParentCnic)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentId)
+                </td>
+
+
+                <td>
+                    @Html.ActionLink("Update", "AddClass", new {  item.ParentId, item.ParentName, item.ParentPhone, item.ParentCnic,item.StudentId} , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Delete", "DeleteClass", new {  item.ParentId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
