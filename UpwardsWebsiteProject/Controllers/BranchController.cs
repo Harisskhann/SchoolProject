@@ -20,9 +20,46 @@ namespace UpwardsWebsiteProject.Controllers
         {
             _Db = Db;
         }
+
         public IActionResult BranchList()
         {
-            return View(_Db.tblBranch.ToList());
+
+            try
+            {
+
+
+                var BranchList = from a in _Db.tblBranch
+                                 join b in _Db.tblSchool on a.SchoolId equals b.SchoolId
+                                 //join c in _Db.tblStudent on a.StudentId equals c.StudentId
+                                 //into Book
+                                 //from b in Book.DefaultIfEmpty()
+
+
+
+
+                                 select new BranchEntity
+                                 {
+
+
+                                     BranchId = a.BranchId,
+                                     BranchName = a.BranchName,
+                                     BranchAddress = a.BranchAddress,
+                                     BranchPhone = a.BranchPhone,
+                                     SchoolId = a.SchoolId,
+                                     SchoolName = b == null ? "" : b.SchoolName,
+
+
+                                 };
+
+
+                return View(BranchList);
+            }
+            catch (Exception ex)
+            {
+                return View();
+
+            }
+
         }
 
         //private IActionResult View(object value)

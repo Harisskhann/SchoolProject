@@ -55,12 +55,20 @@
                 @Html.DisplayNameFor(model => model.Experience)
             </th>
 
-            <th>
+          @*  <th>
                 @Html.DisplayNameFor(model => model.SchoolId)
             </th>
 
             <th>
                 @Html.DisplayNameFor(model => model.BranchId)
+            </th>*@
+
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.BranchName)
             </th>
 
 
@@ -120,7 +128,7 @@
                     @Html.DisplayFor(modelItem => item.Experience)
                 </td>
 
-
+@*
                 <td>
                     @Html.DisplayFor(modelItem => item.SchoolId)
 
@@ -130,6 +138,16 @@
 
                 <td>
                     @Html.DisplayFor(modelItem => item.BranchId)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.SchoolName)
+
+
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchName)
                 </td>
 
 
@@ -137,7 +155,7 @@
 
 
                 <td>
-                    @Html.ActionLink("Update", "AddTeacher", new {  item.TeacherId, item.Name, item.PhoneNumber, item.Gender, item.Email, item.Qualification ,item.Subjects,item.Age,item.Address,item.Experience,item.SchoolId,item.BranchId } , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Update", "AddTeacher", new {  item.TeacherId, item.Name, item.PhoneNumber, item.Gender, item.Email, item.Qualification ,item.Subjects,item.Age,item.Address,item.Experience,item.SchoolId,item.BranchId,item.SchoolName,item.BranchName } , new { @class="btn btn-outline-success rounded-pill"}) |
                     @Html.ActionLink("Delete", "DeleteTeacher", new {  item.TeacherId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
                 </td>
 

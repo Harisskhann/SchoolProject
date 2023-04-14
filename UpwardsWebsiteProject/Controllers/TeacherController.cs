@@ -20,9 +20,69 @@ namespace UpwardsWebsiteProject.Controllers
         {
             _Db = Db;
         }
+        //public IActionResult TeacherList()
+        //{
+        //    return View(_Db.tblTeacher.ToList());
+        //}
+
         public IActionResult TeacherList()
         {
-            return View(_Db.tblTeacher.ToList());
+
+            try
+            {
+
+
+                var TeacherList = from a in _Db.tblTeacher
+                                 join b in _Db.tblSchool on a.SchoolId equals b.SchoolId
+                                 join c in _Db.tblBranch on  a.BranchId equals c.BranchId
+                                 //join c in -Db.tblBranch on a.BranchId equals c.BranchId
+                                 //join c in _Db.tblStudent on a.StudentId equals c.StudentId
+                                 //into Book
+                                 //from b in Book.DefaultIfEmpty()
+
+
+
+
+                                 select new TeacherEntity
+                                 {
+
+
+                                     TeacherId = a.TeacherId,
+                                     Name = a.Name,
+                                     PhoneNumber = a.PhoneNumber,
+                                     Gender = a.Gender,
+                                     Email = a.Email,
+                                     SchoolName = b == null ? "" : b.SchoolName,
+
+
+                                     Qualification =a.Qualification,
+                                     Subjects=a.Subjects,
+                                     Age=a.Age,
+                                     Address=a.Address,
+                                     Experience=a.Experience,
+
+                                     BranchId=c.BranchId,
+                                     BranchName = c == null ? "" : c.BranchName,
+                                     //BranchAddress =c.BranchAddress,
+                                     //BranchPhone=c.BranchPhone,
+                                     SchoolId=c.SchoolId,
+                                    
+
+
+
+
+                                 };
+
+
+
+                return View(TeacherList);
+            }
+            catch (Exception ex)
+            {
+                return View();
+
+            }
+
         }
 
         //public IActionResult CreateSchool(SchoolEntity obj)

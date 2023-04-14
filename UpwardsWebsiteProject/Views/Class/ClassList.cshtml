@@ -21,11 +21,18 @@
         <tr>
 
             <th>
+                @Html.DisplayNameFor(model => model.SchoolName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BranchName)
+            </th>
+
+          @*  <th>
                 @Html.DisplayNameFor(model => model.SchoolId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.BranchId)
-            </th>
+            </th>*@
 
             <th>
                 @Html.DisplayNameFor(model => model.ClassName)
@@ -41,12 +48,19 @@
         @foreach (var item in Model)
         {
             <tr>
+
                 <td>
+                    @Html.DisplayFor(modelItem => item.SchoolName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchName)
+                </td>
+               @* <td>
                     @Html.DisplayFor(modelItem => item.SchoolId)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.BranchId)
-                </td>
+                </td>*@
 
                 <td>
                     @Html.DisplayFor(modelItem => item.ClassName)
@@ -54,7 +68,7 @@
 
 
                 <td>
-                    @Html.ActionLink("Update", "AddClass", new {  item.ClassId, item.SchoolId, item.BranchId, item.ClassName} , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Update", "AddClass", new {  item.ClassId, item.SchoolId, item.BranchId,item.SchoolName,item.BranchName, item.ClassName} , new { @class="btn btn-outline-success rounded-pill"}) |
                     @Html.ActionLink("Delete", "DeleteClass", new {  item.ClassId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
                 </td>
 

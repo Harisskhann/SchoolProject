@@ -19,9 +19,62 @@ namespace UpwardsWebsiteProject.Controllers
         {
             _Db = Db;
         }
+        //public IActionResult ClassList()
+        //{
+        //    return View(_Db.tblClass.ToList());
+        //}
+
+
         public IActionResult ClassList()
         {
-            return View(_Db.tblClass.ToList());
+
+            try
+            {
+
+
+                var ClassList = from a in _Db.tblClass
+                                  join b in _Db.tblSchool on a.SchoolId equals b.SchoolId
+                                  join c in _Db.tblBranch on a.BranchId equals c.BranchId
+                                  //join c in -Db.tblBranch on a.BranchId equals c.BranchId
+                                  //join c in _Db.tblStudent on a.StudentId equals c.StudentId
+                                  //into Book
+                                  //from b in Book.DefaultIfEmpty()
+
+
+
+
+                                  select new ClassEntity
+                                  {
+
+                                    ClassId=a.ClassId,
+                                    ClassName=a.ClassName,
+                                    SchoolId=b.SchoolId,
+                                    SchoolName = b == null ? "" : b.SchoolName,
+
+                                      BranchId = c.BranchId,
+                                      BranchName = c == null ? "" : c.BranchName,
+
+
+                                      //BranchAddress =c.BranchAddress,
+                                      //BranchPhone=c.BranchPhone,
+                                      //SchoolId = c.SchoolId,
+
+
+
+
+
+                                  };
+
+
+
+                return View(ClassList);
+            }
+            catch (Exception ex)
+            {
+                return View();
+
+            }
+
         }
 
         private void loadBranch()

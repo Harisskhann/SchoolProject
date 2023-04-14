@@ -8369,11 +8369,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UpwardsProject\\UpwardsProject\\UpwardsWebsiteProject\\UpwardsWebsiteProject.csproj",
+      "projectUniqueName": "D:\\SchoolWebProject\\SchoolProject\\UpwardsWebsiteProject\\UpwardsWebsiteProject.csproj",
       "projectName": "UpwardsWebsiteProject",
-      "projectPath": "D:\\UpwardsProject\\UpwardsProject\\UpwardsWebsiteProject\\UpwardsWebsiteProject.csproj",
+      "projectPath": "D:\\SchoolWebProject\\SchoolProject\\UpwardsWebsiteProject\\UpwardsWebsiteProject.csproj",
       "packagesPath": "C:\\Users\\hkhan\\.nuget\\packages\\",
-      "outputPath": "D:\\UpwardsProject\\UpwardsProject\\UpwardsWebsiteProject\\obj\\",
+      "outputPath": "D:\\SchoolWebProject\\SchoolProject\\UpwardsWebsiteProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

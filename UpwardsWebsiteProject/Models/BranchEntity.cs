@@ -2,6 +2,7 @@
 
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UpwardsWebsiteProject.Models
 {
@@ -17,6 +18,9 @@ namespace UpwardsWebsiteProject.Models
         public string BranchPhone { get; set; }
 
         public int SchoolId { get; set; }
-     
+
+        [NotMapped]
+        public string SchoolName { get; set; }
+
     }
 }
