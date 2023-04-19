@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UpwardsWebsiteProject.Models
 {
@@ -13,7 +14,9 @@ namespace UpwardsWebsiteProject.Models
 
         public string ParentCnic { get; set; }
 
-        public int  StudentId { get; set;}
+        public int StudentId { get; set; }
 
+        [NotMapped]
+        public string Name { get; set; }
     }
 }

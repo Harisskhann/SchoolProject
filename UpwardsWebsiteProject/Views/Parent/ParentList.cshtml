@@ -32,10 +32,14 @@
             </th>
 
 
-            <th>
+           @* <th>
                 @Html.DisplayNameFor(model => model.StudentId)
-            </th>
+            </th>*@
 
+
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
 
 
             <th>Actions</th>
@@ -57,14 +61,16 @@
                     @Html.DisplayFor(modelItem => item.ParentCnic)
                 </td>
 
-
+@*
                 <td>
                     @Html.DisplayFor(modelItem => item.StudentId)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
                 </td>
 
-
                 <td>
-                    @Html.ActionLink("Update", "AddClass", new {  item.ParentId, item.ParentName, item.ParentPhone, item.ParentCnic,item.StudentId} , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Update", "AddClass", new {  item.ParentId, item.ParentName, item.ParentPhone, item.ParentCnic,item.StudentId,item.Name} , new { @class="btn btn-outline-success rounded-pill"}) |
                     @Html.ActionLink("Delete", "DeleteClass", new {  item.ParentId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
                 </td>
 

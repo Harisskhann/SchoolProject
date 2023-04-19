@@ -57,7 +57,7 @@
                     @Html.DisplayNameFor(model => model.Address)
                 </th>
 
-                <th>
+               @* <th>
                     @Html.DisplayNameFor(model => model.SchoolId)
                 </th>
 
@@ -73,7 +73,31 @@
 
                 <th>
                     @Html.DisplayNameFor(model => model.SectionId)
-                </th>
+                </th>*@
+
+
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.BranchName)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.ClassName)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.SectionName)
+            </th>
+
+
+
 
 
 
@@ -132,7 +156,7 @@
                     </td>
 
                     
-                    <td>
+                  @*  <td>
                         @Html.DisplayFor(modelItem => item.SchoolId)
 
 
@@ -151,11 +175,35 @@
 
                     <td>
                         @Html.DisplayFor(modelItem => item.SectionId)
-                    </td>
+                    </td>*@
+
+
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.SchoolName)
+
+
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.BranchName)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.SectionName)
+                </td>
 
 
                     <td>
-                        @Html.ActionLink("Update", "AddStudent", new {  item.StudentId, item.Name, item.FatherName, item.FatherCnic, item.Gender, item.DOB ,item.Age,item.Phone,item.Landline,item.Address,item.SchoolId,item.BranchId,item.ClassId,item.SectionId } , new { @class="btn btn-outline-success rounded-pill"}) <br/><br/>
+                        @Html.ActionLink("Update", "AddStudent", new {  item.StudentId, item.Name, item.FatherName, item.FatherCnic, item.Gender, item.DOB ,item.Age,item.Phone,item.Landline,item.Address,item.SchoolId,item.BranchId,item.ClassId,item.SectionId,item.SchoolName,item.BranchName,item.ClassName,item.SectionName } , new { @class="btn btn-outline-success rounded-pill"}) <br/><br/>
                         @Html.ActionLink("Delete", "DeleteStudent", new {  item.StudentId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
                     </td>
 

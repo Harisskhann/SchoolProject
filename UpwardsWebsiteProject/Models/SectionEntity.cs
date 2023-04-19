@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UpwardsWebsiteProject.Models
 {
@@ -16,6 +17,18 @@ namespace UpwardsWebsiteProject.Models
         public string SectionName { get; set; }
 
         public string ClassTeacher { get; set; }
+
+        [NotMapped]
+
+        public string SchoolName { get; set; }
+
+        [NotMapped]
+
+        public string BranchName { get; set; }
+         
+        [NotMapped]
+
+        public string ClassName { get; set; }
 
 
 

@@ -20,10 +20,10 @@ namespace UpwardsWebsiteProject.Controllers
         {
             _Db = Db;
         }
-        public IActionResult StudentList()
-        {
-            return View(_Db.tblStudent.ToList());
-        }
+        //public IActionResult StudentList()
+        //{
+        //    return View(_Db.tblStudent.ToList());
+        //}
 
         //public IActionResult CreateSchool(SchoolEntity obj)
         //{
@@ -49,9 +49,80 @@ namespace UpwardsWebsiteProject.Controllers
 
 
         //    }
-        //}
 
-      
+        //}
+        public IActionResult StudentList()
+        {
+
+            try
+            {
+
+
+                var StudentList = from a in _Db.tblStudent
+                                  join b in _Db.tblSchool on a.SchoolId equals b.SchoolId
+                                  join c in _Db.tblBranch on a.BranchId equals c.BranchId
+                                  join d in _Db.tblClass on a.ClassId equals d.ClassId
+                                  join e in _Db.tblSection on a.SectionId equals e.SectionId
+                                  //join c in -Db.tblBranch on a.BranchId equals c.BranchId
+                                  //join c in _Db.tblStudent on a.StudentId equals c.StudentId
+                                  //into Book
+                                  //from b in Book.DefaultIfEmpty()
+
+
+
+
+                                  select new StudentEntity
+                                  {
+
+                                      StudentId = a.StudentId,
+                                      Name = a.Name,
+                                      //ClassTeacher = a.ClassTeacher,
+
+                                      FatherName = a.FatherName,
+                                      FatherCnic= a.FatherCnic,
+                                      Gender = a.Gender,
+                                      DOB = a.DOB,
+                                      Age = a.Age,
+                                      Address = a.Address,
+                                      Landline = a.Landline,
+                                      Phone = a.Phone,
+                                      SchoolId = b.SchoolId,
+                                      SchoolName = b == null ? "" : b.SchoolName,
+
+                                      BranchId = c.BranchId,
+                                      BranchName = c == null ? "" : c.BranchName,
+
+                                      ClassId = d.ClassId,
+                                      ClassName = d == null ? "" : d.ClassName,
+
+
+                                      SectionId = e.SectionId,
+                                      SectionName = e == null ? "" : e.SectionName,
+
+
+                                      //BranchAddress =c.BranchAddress,
+                                      //BranchPhone=c.BranchPhone,
+                                      //SchoolId = c.SchoolId,
+
+
+
+
+
+                                  };
+
+
+
+                return View(StudentList);
+            }
+            catch (Exception ex)
+            {
+                return View();
+
+            }
+
+        }
+
+
 
 
 

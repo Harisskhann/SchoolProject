@@ -19,18 +19,6 @@
 <table class="table">
     <thead>
         <tr>
-
-            <th>
-                @Html.DisplayNameFor(model => model.SchoolId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BranchId)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.ClassId)
-            </th>
-
             <th>
                 @Html.DisplayNameFor(model => model.SectionName)
             </th>
@@ -38,8 +26,23 @@
             <th>
                 @Html.DisplayNameFor(model => model.ClassTeacher)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SchoolName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BranchName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassName)
+            </th>
 
 
+         
+
+
+
+
+            
 
 
 
@@ -51,7 +54,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+               @* <td>
                     @Html.DisplayFor(modelItem => item.SchoolId)
                 </td>
                 <td>
@@ -60,7 +63,7 @@
 
                 <td>
                     @Html.DisplayFor(modelItem => item.ClassId)
-                </td>
+                </td>*@
 
                 <td>
                     @Html.DisplayFor(modelItem => item.SectionName)
@@ -69,10 +72,19 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.ClassTeacher)
                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SchoolName)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.BranchName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
 
 
                 <td>
-                    @Html.ActionLink("Update", "AddSchool", new {  item.SectionId, item.SchoolId, item.BranchId, item.ClassId,item.SectionName,item.ClassTeacher } , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Update", "AddSchool", new {  item.SectionId, item.SchoolId, item.BranchId, item.ClassId,item.SectionName,item.ClassTeacher,item.SchoolName,item.BranchName,item } , new { @class="btn btn-outline-success rounded-pill"}) |
                     @Html.ActionLink("Delete", "DeleteSchool", new {  item.SectionId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
                 </td>
 

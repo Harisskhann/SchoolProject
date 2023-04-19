@@ -19,15 +19,75 @@ namespace UpwardsWebsiteProject.Controllers
         {
             _Db = Db;
         }
-        public IActionResult SectionList()
-        {
-            return View(_Db.tblSection.ToList());
-        }
+        //public IActionResult SectionList()
+        //{
+        //    return View(_Db.tblSection.ToList());
+        //}
 
         //public IActionResult CreateSchool(SchoolEntity obj)
         //{
         //    return View(obj);
         //}
+
+
+        public IActionResult SectionList()
+        {
+
+            try
+            {
+
+
+                var SectionList = from a in _Db.tblSection
+                                join b in _Db.tblSchool on a.SchoolId equals b.SchoolId
+                                join c in _Db.tblBranch on a.BranchId equals c.BranchId
+                                  join d in _Db.tblClass on a.ClassId equals d.ClassId
+                                  //join c in -Db.tblBranch on a.BranchId equals c.BranchId
+                                  //join c in _Db.tblStudent on a.StudentId equals c.StudentId
+                                  //into Book
+                                  //from b in Book.DefaultIfEmpty()
+
+
+
+
+                                  select new SectionEntity
+                                {
+
+                                    SectionId = a.SectionId,
+                                    SectionName = a.SectionName,
+                                    ClassTeacher = a.ClassTeacher,
+                                    
+                                    
+                                    SchoolId = b.SchoolId,
+                                    SchoolName = b == null ? "" : b.SchoolName,
+
+                                    BranchId = c.BranchId,
+                                    BranchName = c == null ? "" : c.BranchName,
+
+                                    ClassId = d.ClassId,
+                                    ClassName= d == null ? "" : d.ClassName,
+
+
+                                    //BranchAddress =c.BranchAddress,
+                                    //BranchPhone=c.BranchPhone,
+                                    //SchoolId = c.SchoolId,
+
+
+
+
+
+                                };
+
+
+
+                return View(SectionList);
+            }
+            catch (Exception ex)
+            {
+                return View();
+
+            }
+
+        }
 
         private void loadSchool()
         {

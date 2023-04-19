@@ -20,16 +20,67 @@ namespace UpwardsWebsiteProject.Controllers
         {
             _Db = Db;
         }
-        public IActionResult ParentList()
-        {
-            return View(_Db.tblParent.ToList());
-        }
+        //public IActionResult ParentList()
+        //{
+        //    return View(_Db.tblParent.ToList());
+        //}
 
         //public IActionResult CreateSchool(SchoolEntity obj)
         //{
         //    return View(obj);
         //}
+        public IActionResult ParentList()
+        {
 
+            try
+            {
+
+
+                var ParentList = from a in _Db.tblParent
+                                join b in _Db.tblStudent on a.StudentId equals b.StudentId
+                                //join c in _Db.tblBranch on a.BranchId equals c.BranchId
+                                //join c in -Db.tblBranch on a.BranchId equals c.BranchId
+                                //join c in _Db.tblStudent on a.StudentId equals c.StudentId
+                                //into Book
+                                //from b in Book.DefaultIfEmpty()
+
+
+
+
+                                select new ParentEntity
+                                {
+
+                                    ParentId = a.ParentId,
+                                    ParentName = a.ParentName,
+                                    ParentPhone = a.ParentPhone,
+                                    ParentCnic = a.ParentCnic,
+                                    //SchoolName = b == null ? "" : b.SchoolName,
+
+                                    StudentId = b.StudentId,
+                                    Name = b == null ? "" :b.Name,
+
+
+                                    //BranchAddress =c.BranchAddress,
+                                    //BranchPhone=c.BranchPhone,
+                                    //SchoolId = c.SchoolId,
+
+
+
+
+
+                                };
+
+
+
+                return View(ParentList);
+            }
+            catch (Exception ex)
+            {
+                return View();
+
+            }
+
+        }
         private void loadStudent()
         {
             try
