@@ -75,12 +75,12 @@ namespace UpwardsWebsiteProject.Controllers
 
         //Method to Load Categories in Add Item View Page
 
-        private void loadSchool()
+        private async void loadSchool()
         {
             try
             {
                 List<SchoolEntity> SchoolList = new List<SchoolEntity>();
-                SchoolList = _Db.tblSchool.ToList();
+                SchoolList =await _Db.tblSchool.ToListAsync();
 
                 SchoolList.Insert(0, new SchoolEntity { SchoolId = 0, SchoolName = "Please Select" });
 
