@@ -328,3 +328,4 @@ D:\SchoolWebProject\SchoolProject\UpwardsWebsiteProject\obj\Debug\netcoreapp3.1\
 D:\SchoolWebProject\SchoolProject\UpwardsWebsiteProject\obj\Debug\netcoreapp3.1\UpwardsWebsiteProject.dll
 D:\SchoolWebProject\SchoolProject\UpwardsWebsiteProject\obj\Debug\netcoreapp3.1\UpwardsWebsiteProject.pdb
 D:\SchoolWebProject\SchoolProject\UpwardsWebsiteProject\obj\Debug\netcoreapp3.1\UpwardsWebsiteProject.genruntimeconfig.cache
+D:\SchoolWebProject\SchoolProject\UpwardsWebsiteProject\obj\Debug\netcoreapp3.1\Razor\Views\Login\LoginList.cshtml.g.cs

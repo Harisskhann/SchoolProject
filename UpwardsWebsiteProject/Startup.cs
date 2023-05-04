@@ -53,7 +53,7 @@ namespace UpwardsWebsiteProject
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=School}/{action=SchoolList}/{id?}");
+                    pattern: "{controller=Login}/{action=LoginList}/{id?}");
             });
         }
     }

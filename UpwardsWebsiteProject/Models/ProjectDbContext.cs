@@ -26,6 +26,9 @@ namespace UpwardsWebsiteProject.Models
 
         public DbSet<SubjectsEntity> tblSubjects { get; set; }
 
+        public DbSet<LoginEntity> TblLogin { get; set; }
+
+
 
 
     }
